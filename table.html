@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RevoU Coding — Student Data Table</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    tbody tr:hover { background-color: #eef2ff; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-sm">R</span>
+          </div>
+          <span class="font-bold text-gray-900 text-lg">RevoU Coding</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <a href="index.html" class="px-4 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50 transition-colors">Home</a>
+          <a href="list.html" class="px-4 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50 transition-colors">Students</a>
+          <a href="table.html" class="px-4 py-2 rounded-md text-sm font-medium text-indigo-600 bg-indigo-50">Table</a>
+          <a href="form.html" class="px-4 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50 transition-colors">Form</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Student Data Table</h1>
+          <p class="text-gray-500 text-sm mt-1">Overview of all enrolled students — Full-Stack · Batch 2025</p>
+        </div>
+        <button class="inline-flex items-center gap-2 bg-white text-gray-700 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-50 transition-colors shadow-sm border border-gray-200">
+          <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Export CSV
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+      <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+        <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">Total</p>
+        <p class="text-3xl font-bold text-gray-700 mt-1">24</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+        <p class="text-xs text-green-600 font-medium uppercase tracking-wide">Active</p>
+        <p class="text-3xl font-bold text-green-600 mt-1">20</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+        <p class="text-xs text-yellow-600 font-medium uppercase tracking-wide">On Leave</p>
+        <p class="text-3xl font-bold text-yellow-600 mt-1">3</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+        <p class="text-xs text-red-500 font-medium uppercase tracking-wide">Dropped</p>
+        <p class="text-3xl font-bold text-red-500 mt-1">1</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-100 bg-gray-50">
+              <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide w-10">
+                <div class="flex items-center gap-1">No
+                  <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                </div>
+              </th>
+              <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <div class="flex items-center gap-1">Name
+                  <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                </div>
+              </th>
+              <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <div class="flex items-center gap-1">City
+                  <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                </div>
+              </th>
+              <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <div class="flex items-center gap-1">Track
+                  <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                </div>
+              </th>
+              <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <div class="flex items-center gap-1">Status
+                  <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                </div>
+              </th>
+              <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <div class="flex items-center gap-1">Progress
+                  <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                </div>
+              </th>
+              <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <div class="flex items-center gap-1">Tasks
+                  <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                </div>
+              </th>
+              <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <div class="flex items-center gap-1">Joined
+                  <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-50">
+            <!-- Row 1 -->
+            <tr class="bg-white">
+              <td class="px-5 py-4 text-gray-400 text-xs">1</td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">AR</div>
+                  <span class="font-medium text-gray-900">Andi Rahman</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600">Jakarta</td>
+              <td class="px-5 py-4 text-gray-600">Full-Stack</td>
+              <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Active</span></td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-20 bg-gray-100 rounded-full h-1.5"><div class="bg-indigo-500 h-1.5 rounded-full" style="width:80%"></div></div>
+                  <span class="text-xs text-gray-600 font-medium">80%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600 text-xs font-medium">12/15</td>
+              <td class="px-5 py-4 text-gray-500 text-xs">Jan 2025</td>
+            </tr>
+            <!-- Row 2 -->
+            <tr class="bg-gray-50">
+              <td class="px-5 py-4 text-gray-400 text-xs">2</td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">SW</div>
+                  <span class="font-medium text-gray-900">Siti Wulandari</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600">Bandung</td>
+              <td class="px-5 py-4 text-gray-600">Full-Stack</td>
+              <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Active</span></td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-20 bg-gray-100 rounded-full h-1.5"><div class="bg-green-500 h-1.5 rounded-full" style="width:100%"></div></div>
+                  <span class="text-xs text-gray-600 font-medium">100%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600 text-xs font-medium">15/15</td>
+              <td class="px-5 py-4 text-gray-500 text-xs">Jan 2025</td>
+            </tr>
+            <!-- Row 3 -->
+            <tr class="bg-white">
+              <td class="px-5 py-4 text-gray-400 text-xs">3</td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">BP</div>
+                  <span class="font-medium text-gray-900">Budi Prasetyo</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600">Surabaya</td>
+              <td class="px-5 py-4 text-gray-600">Full-Stack</td>
+              <td class="px-5 py-4"><span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-1 rounded-full">On Leave</span></td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-20 bg-gray-100 rounded-full h-1.5"><div class="bg-amber-500 h-1.5 rounded-full" style="width:47%"></div></div>
+                  <span class="text-xs text-gray-600 font-medium">47%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600 text-xs font-medium">7/15</td>
+              <td class="px-5 py-4 text-gray-500 text-xs">Jan 2025</td>
+            </tr>
+            <!-- Row 4 -->
+            <tr class="bg-gray-50">
+              <td class="px-5 py-4 text-gray-400 text-xs">4</td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">DN</div>
+                  <span class="font-medium text-gray-900">Dewi Nuraini</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600">Yogyakarta</td>
+              <td class="px-5 py-4 text-gray-600">Full-Stack</td>
+              <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Active</span></td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-20 bg-gray-100 rounded-full h-1.5"><div class="bg-teal-500 h-1.5 rounded-full" style="width:67%"></div></div>
+                  <span class="text-xs text-gray-600 font-medium">67%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600 text-xs font-medium">10/15</td>
+              <td class="px-5 py-4 text-gray-500 text-xs">Jan 2025</td>
+            </tr>
+            <!-- Row 5 -->
+            <tr class="bg-white">
+              <td class="px-5 py-4 text-gray-400 text-xs">5</td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">FH</div>
+                  <span class="font-medium text-gray-900">Fajar Hidayat</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600">Medan</td>
+              <td class="px-5 py-4 text-gray-600">Full-Stack</td>
+              <td class="px-5 py-4"><span class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Dropped</span></td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-20 bg-gray-100 rounded-full h-1.5"><div class="bg-red-400 h-1.5 rounded-full" style="width:20%"></div></div>
+                  <span class="text-xs text-gray-600 font-medium">20%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600 text-xs font-medium">3/15</td>
+              <td class="px-5 py-4 text-gray-500 text-xs">Jan 2025</td>
+            </tr>
+            <!-- Row 6 -->
+            <tr class="bg-gray-50">
+              <td class="px-5 py-4 text-gray-400 text-xs">6</td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">RM</div>
+                  <span class="font-medium text-gray-900">Rina Maulida</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600">Makassar</td>
+              <td class="px-5 py-4 text-gray-600">Full-Stack</td>
+              <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Active</span></td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-20 bg-gray-100 rounded-full h-1.5"><div class="bg-sky-500 h-1.5 rounded-full" style="width:87%"></div></div>
+                  <span class="text-xs text-gray-600 font-medium">87%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600 text-xs font-medium">13/15</td>
+              <td class="px-5 py-4 text-gray-500 text-xs">Jan 2025</td>
+            </tr>
+            <!-- Row 7 -->
+            <tr class="bg-white">
+              <td class="px-5 py-4 text-gray-400 text-xs">7</td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">HG</div>
+                  <span class="font-medium text-gray-900">Hendra Gunawan</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600">Semarang</td>
+              <td class="px-5 py-4 text-gray-600">Full-Stack</td>
+              <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Active</span></td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-20 bg-gray-100 rounded-full h-1.5"><div class="bg-orange-500 h-1.5 rounded-full" style="width:93%"></div></div>
+                  <span class="text-xs text-gray-600 font-medium">93%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600 text-xs font-medium">14/15</td>
+              <td class="px-5 py-4 text-gray-500 text-xs">Jan 2025</td>
+            </tr>
+            <!-- Row 8 -->
+            <tr class="bg-gray-50">
+              <td class="px-5 py-4 text-gray-400 text-xs">8</td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">MK</div>
+                  <span class="font-medium text-gray-900">Maya Kusuma</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600">Bali</td>
+              <td class="px-5 py-4 text-gray-600">Full-Stack</td>
+              <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Active</span></td>
+              <td class="px-5 py-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-20 bg-gray-100 rounded-full h-1.5"><div class="bg-rose-500 h-1.5 rounded-full" style="width:73%"></div></div>
+                  <span class="text-xs text-gray-600 font-medium">73%</span>
+                </div>
+              </td>
+              <td class="px-5 py-4 text-gray-600 text-xs font-medium">11/15</td>
+              <td class="px-5 py-4 text-gray-500 text-xs">Jan 2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Table Pagination Footer -->
+      <div class="border-t border-gray-100 px-5 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-gray-50">
+        <p class="text-sm text-gray-500">Showing <span class="font-medium text-gray-700">1–8</span> of <span class="font-medium text-gray-700">24</span> students</p>
+        <div class="flex items-center gap-1">
+          <button class="w-9 h-9 text-sm font-semibold rounded-lg bg-indigo-600 text-white">1</button>
+          <button class="w-9 h-9 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-200 transition-colors">2</button>
+          <button class="w-9 h-9 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-200 transition-colors">3</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-100 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+      <p class="text-gray-400 text-sm">&copy; 2025 RevoU Coding. All rights reserved. · Full-Stack Software Engineering · Batch 2025</p>
+    </div>
+  </footer>
+
+</body>
+</html>
